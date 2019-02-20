@@ -19,9 +19,11 @@ public class BadThreads {
     public static void main(String args[])
             throws InterruptedException {
 
-        (new CorrectorThread()).start();
+        Thread t = new CorrectorThread();
+        t.start();
         message = "Mares do not eat oats.";
-        Thread.sleep(2000);
+        t.join();
+//        Thread.sleep(2000);
         // Key statement 2:
         System.out.println(message);
     }
